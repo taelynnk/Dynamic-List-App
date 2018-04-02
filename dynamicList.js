@@ -1,20 +1,31 @@
-var button = document.getElementById('addFirstItem');
+var button1 = document.getElementById('addFirstItem');
 
-function addFirstItem() {
+function addItem() {
     var ul = document.getElementsByTagName('ul')[0];
     var newItem = document.createElement('li');
-    var input = newItem.value;
+    var textbox = document.getElementById('input');
+    var input = document.getElementById('input').value;
+    var deleteButton = document.createElement('button');
+    ul.appendChild(newItem);
+    newItem.textContent = input;
+    deleteButton.textContent = 'Delete Item';
 
-    ul.appendChild(input);
+    newItem.appendChild(deleteButton);
+
+    textbox.focus();
+    textbox.value = "";
+
+
+
+
+    deleteButton.addEventListener('click', () => {
+        deleteButton.parentElement.remove();
+        textbox.focus();
+        textbox.value = "";
+
+    });
 
 
 }
 
-button.addEventListener('click', addFirstItem);
-
-var button2 = document.getElementById('addOtherItems');
-
-function addOtherItems() {
-
-
-}
+button1.addEventListener('click', addItem);
